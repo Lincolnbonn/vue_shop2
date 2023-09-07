@@ -34,7 +34,7 @@
         username: 'admin',
         password: '123456'
       },
-      //这是表单的验证规则对象
+      //表单的验证规则对象
       loginFormRules:{
         //验证用户名是否合法
         username:[{
