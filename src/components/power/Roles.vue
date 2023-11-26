@@ -62,6 +62,7 @@
             <el-button size="mini" type="danger" icon="el-icon-delete">删除</el-button>
             <el-button size="mini" type="warning" icon="el-icon-setting"
             @click="showSetRightDialog(scope.row)">分配权限</el-button>
+            <!--(scope.row)就是当前的角色-->
         </template>
     </el-table-column>
     </el-table>
@@ -147,8 +148,11 @@ export default{
     },
 
     //展示分配权限的对话框
+    //showSetRightDialog(scope.row)
+    //在这里接收到scope.row
     async showSetRightDialog(role){
-
+      //打开对话框的时候，通过role对象获取roleId
+      //将role.id保存起来以供保存权限时使用
       this.roleId = role.id
       //获取所有权限的数据
        const {data: res} = await this.$http.get('rights/tree')
@@ -162,6 +166,7 @@ export default{
       console.log(this.rightlist)
 
         //递归获取三级节点的id
+        //scope.row传递到这
         this.getLeafKeys(role, this.defKeys )
       this.setRightDialogVisible = true
     },
