@@ -67,13 +67,18 @@
             //是否折叠
             isCollapse:false,
             //被激活的链接地址
-            activePath:''
-           }
+            activePath:'',
+
+
+        }
+
+
         },
         created() {
             //一进入获取所有菜单
             this.getMenuList()
             this.activePath = window.sessionStorage.getItem('activePath')
+
         },
         methods: {
             logout(){
@@ -98,7 +103,12 @@
             saveNavState(activePath){
                 window.sessionStorage.setItem('activePath',activePath)
                 this.activePath = activePath
-            }
+            },
+
+
+
+
+
         },
 
 
